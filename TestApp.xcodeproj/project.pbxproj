@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6142281A73AF0064D1F2 /* AppDelegate.swift */; };
 		50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */; };
-		50BC6147281A73AF0064D1F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6146281A73AF0064D1F2 /* ViewController.swift */; };
 		50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC6148281A73AF0064D1F2 /* Main.storyboard */; };
 		50BC614C281A73B10064D1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BC614B281A73B10064D1F2 /* Assets.xcassets */; };
 		50BC614F281A73B10064D1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC614D281A73B10064D1F2 /* LaunchScreen.storyboard */; };
 		50BC615A281A73B20064D1F2 /* TestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6159281A73B20064D1F2 /* TestAppTests.swift */; };
 		50BC6164281A73B20064D1F2 /* TestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6163281A73B20064D1F2 /* TestAppUITests.swift */; };
 		50BC6166281A73B20064D1F2 /* TestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6165281A73B20064D1F2 /* TestAppUITestsLaunchTests.swift */; };
+		50BC617A281A77FB0064D1F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6179281A77FB0064D1F2 /* BaseViewController.swift */; };
+		50BC617C281A780C0064D1F2 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC617B281A780C0064D1F2 /* BaseManager.swift */; };
+		50BC617E281A781D0064D1F2 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC617D281A781D0064D1F2 /* BaseProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		50BC613F281A73AF0064D1F2 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC6142281A73AF0064D1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50BC6146281A73AF0064D1F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50BC6149281A73AF0064D1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50BC614B281A73B10064D1F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50BC614E281A73B10064D1F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		50BC615F281A73B20064D1F2 /* TestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC6163281A73B20064D1F2 /* TestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITests.swift; sourceTree = "<group>"; };
 		50BC6165281A73B20064D1F2 /* TestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		50BC6179281A77FB0064D1F2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		50BC617B281A780C0064D1F2 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		50BC617D281A781D0064D1F2 /* BaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,7 @@
 			children = (
 				50BC6142281A73AF0064D1F2 /* AppDelegate.swift */,
 				50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */,
-				50BC6146281A73AF0064D1F2 /* ViewController.swift */,
-				50BC6148281A73AF0064D1F2 /* Main.storyboard */,
+				50BC6172281A76630064D1F2 /* Application */,
 				50BC614B281A73B10064D1F2 /* Assets.xcassets */,
 				50BC614D281A73B10064D1F2 /* LaunchScreen.storyboard */,
 				50BC6150281A73B10064D1F2 /* Info.plist */,
@@ -125,6 +128,25 @@
 				50BC6165281A73B20064D1F2 /* TestAppUITestsLaunchTests.swift */,
 			);
 			path = TestAppUITests;
+			sourceTree = "<group>";
+		};
+		50BC6172281A76630064D1F2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				50BC6148281A73AF0064D1F2 /* Main.storyboard */,
+				50BC6174281A77390064D1F2 /* Base */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		50BC6174281A77390064D1F2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				50BC6179281A77FB0064D1F2 /* BaseViewController.swift */,
+				50BC617B281A780C0064D1F2 /* BaseManager.swift */,
+				50BC617D281A781D0064D1F2 /* BaseProtocol.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BC6147281A73AF0064D1F2 /* ViewController.swift in Sources */,
 				50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */,
 				50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */,
+				50BC617C281A780C0064D1F2 /* BaseManager.swift in Sources */,
+				50BC617E281A781D0064D1F2 /* BaseProtocol.swift in Sources */,
+				50BC617A281A77FB0064D1F2 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
