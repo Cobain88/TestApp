@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5087B780281FF13700B0835F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B77F281FF13600B0835F /* API.swift */; };
 		5087B782281FF1CA00B0835F /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B781281FF1CA00B0835F /* CharactersService.swift */; };
+		5087B78A281FFF5300B0835F /* CharactersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B789281FFF5300B0835F /* CharactersProtocol.swift */; };
+		5087B78C281FFF8300B0835F /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B78B281FFF8200B0835F /* CharactersManager.swift */; };
+		5087B78F281FFFE700B0835F /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B78E281FFFE700B0835F /* CharactersViewController.swift */; };
+		5087B7912820010B00B0835F /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B7902820010B00B0835F /* CharactersModel.swift */; };
 		50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6142281A73AF0064D1F2 /* AppDelegate.swift */; };
 		50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */; };
 		50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC6148281A73AF0064D1F2 /* Main.storyboard */; };
@@ -45,6 +49,10 @@
 /* Begin PBXFileReference section */
 		5087B77F281FF13600B0835F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		5087B781281FF1CA00B0835F /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
+		5087B789281FFF5300B0835F /* CharactersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersProtocol.swift; sourceTree = "<group>"; };
+		5087B78B281FFF8200B0835F /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
+		5087B78E281FFFE700B0835F /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		5087B7902820010B00B0835F /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		50BC613F281A73AF0064D1F2 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC6142281A73AF0064D1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,10 @@
 		5087B785281FFB5E00B0835F /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				5087B7902820010B00B0835F /* CharactersModel.swift */,
+				5087B78E281FFFE700B0835F /* CharactersViewController.swift */,
+				5087B78B281FFF8200B0835F /* CharactersManager.swift */,
+				5087B789281FFF5300B0835F /* CharactersProtocol.swift */,
 				5087B781281FF1CA00B0835F /* CharactersService.swift */,
 			);
 			path = Characters;
@@ -349,11 +361,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */,
+				5087B78C281FFF8300B0835F /* CharactersManager.swift in Sources */,
 				50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */,
 				50BC617C281A780C0064D1F2 /* BaseManager.swift in Sources */,
 				50BC617E281A781D0064D1F2 /* BaseProtocol.swift in Sources */,
 				5087B780281FF13700B0835F /* API.swift in Sources */,
+				5087B78A281FFF5300B0835F /* CharactersProtocol.swift in Sources */,
 				5087B782281FF1CA00B0835F /* CharactersService.swift in Sources */,
+				5087B78F281FFFE700B0835F /* CharactersViewController.swift in Sources */,
+				5087B7912820010B00B0835F /* CharactersModel.swift in Sources */,
 				50BC617A281A77FB0064D1F2 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

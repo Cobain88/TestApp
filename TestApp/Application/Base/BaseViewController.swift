@@ -30,7 +30,7 @@ class BaseViewController<T: BaseManager>: UIViewController, BaseControllerDelega
     
     func addSpinner() {
         view.addSubview(spinner)
-        spinner.color = .white
+        spinner.color = .black
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

@@ -1,0 +1,7 @@
+query GetChar{
+    charactersByIds(ids:["1","50","100","500"]) {
+    name
+    species
+    gender
+  }
+}
