@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharactersManagerDelegate: AnyObject {
-
+    func refresh()
 }
 
 protocol CharactersControllerDelegate: AnyObject {

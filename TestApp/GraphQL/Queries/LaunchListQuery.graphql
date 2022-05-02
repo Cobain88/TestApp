@@ -1,7 +1,12 @@
-query GetChar{
-    charactersByIds(ids:["1","50","100","500"]) {
-    name
-    species
-    gender
+query GetChar ($page: Int!) {
+    characters(page: $page) {
+    results {
+      id
+      name
+      status
+      species
+      gender
+      image
+    }
   }
 }

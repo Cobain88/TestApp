@@ -45,6 +45,8 @@ extension CharactersViewController: CharacterViewDelegate {
     }
     
     func refresh() {
+        self.manager.refresh()
+        
     }
     
     
