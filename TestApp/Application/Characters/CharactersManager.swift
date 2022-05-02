@@ -26,7 +26,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               
               DispatchQueue.main.async {
                   (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
-                  self.viewControllerDelegate?.setCharactersList(data: self.model ?? [])
+                  self.viewControllerDelegate?.setCharactersList(data: self.model)
               }
               
               

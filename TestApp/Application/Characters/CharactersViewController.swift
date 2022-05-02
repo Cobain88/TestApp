@@ -9,6 +9,10 @@ import UIKit
 
 class CharactersViewController: BaseViewController<CharactersManager> {
 
+    @IBOutlet weak var characterListView: UIView!
+    
+    var listView: ListView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDelegates()
@@ -23,7 +27,24 @@ class CharactersViewController: BaseViewController<CharactersManager> {
 
 extension CharactersViewController: CharactersControllerDelegate {
     func setCharactersList(data: [CharactersModel]) {
-        print(data.map({$0.species}))
+        self.listView?.removeFromSuperview()
+        self.listView = ListView.create(data: data, delegate: self)
+        if let listView = self.listView {
+            characterListView.addSubview(listView)
+            listView.translatesAutoresizingMaskIntoConstraints = false
+            listView.leadingAnchor.constraint(equalTo: characterListView.leadingAnchor).isActive = true
+            listView.trailingAnchor.constraint(equalTo: characterListView.trailingAnchor).isActive = true
+            listView.topAnchor.constraint(equalTo: characterListView.topAnchor).isActive = true
+            listView.bottomAnchor.constraint(equalTo: characterListView.bottomAnchor).isActive = true
+        }
+    }
+}
+
+extension CharactersViewController: CharacterViewDelegate {
+    func didTapOnClassItem(model: CharactersModel) {
+    }
+    
+    func refresh() {
     }
     
     
