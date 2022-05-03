@@ -9,9 +9,10 @@ import Foundation
 
 protocol CharactersManagerDelegate: AnyObject {
     func refresh()
+    func didTapOnCharacter(model: CharacterModel)
 }
 
 protocol CharactersControllerDelegate: AnyObject {
-    func setCharactersList(data: [CharactersModel])
-
+    func setCharactersList(data: [CharacterModel])
+    func goToDetailView(controller: DetailViewController)
 }

@@ -26,7 +26,8 @@ class CharactersViewController: BaseViewController<CharactersManager> {
 }
 
 extension CharactersViewController: CharactersControllerDelegate {
-    func setCharactersList(data: [CharactersModel]) {
+    
+    func setCharactersList(data: [CharacterModel]) {
         self.listView?.removeFromSuperview()
         self.listView = ListView.create(data: data, delegate: self)
         if let listView = self.listView {
@@ -40,10 +41,16 @@ extension CharactersViewController: CharactersControllerDelegate {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Characters"
     }
+    
+    func goToDetailView(controller: DetailViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension CharactersViewController: CharacterViewDelegate {
-    func didTapOnClassItem(model: CharactersModel) {
+   
+    func didTapOnItem(model: CharacterModel) {
+        self.manager.didTapOnCharacter(model: model)
     }
     
     func refresh() {

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol CharacterViewDelegate: AnyObject {
-    func didTapOnClassItem(model: CharactersModel)
+    func didTapOnItem(model: CharacterModel)
     func refresh()
 }
 
@@ -19,7 +19,7 @@ class ListView: UIView {
     
     weak var delegate: CharacterViewDelegate?
     
-    var list: [CharactersModel] = []
+    var list: [CharacterModel] = []
     var refreshControl = UIRefreshControl()
     
     var isRefreshing: Bool = false {
@@ -38,7 +38,7 @@ class ListView: UIView {
         super.init(coder: aDecoder)
     }
     
-    class func create(data: [CharactersModel], delegate: CharacterViewDelegate) -> ListView {
+    class func create(data: [CharacterModel], delegate: CharacterViewDelegate) -> ListView {
         let nib = UINib(nibName: "ListView", bundle: nil)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as? ListView
         view?.list = data
@@ -77,7 +77,7 @@ extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.didTapOnClassItem(model: self.list[indexPath.row])
+        self.delegate?.didTapOnItem(model: self.list[indexPath.row])
     }
 }
 

@@ -22,7 +22,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         self.imageView.alpha = 0.8
     }
     
-    func setup(model: CharactersModel?) {
+    func setup(model: CharacterModel?) {
         guard let model = model else { return }
         self.nameLabel.text = model.name
         self.speciesLabel.text = model.species

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharactersModel {
+struct CharacterModel {
     var name: String?
     var gender: String?
     var status: String?

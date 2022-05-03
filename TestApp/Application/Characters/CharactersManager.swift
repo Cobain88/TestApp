@@ -9,7 +9,7 @@ import Foundation
 
 class CharactersManager: BaseManager, CharactersManagerDelegate {
     
-    private var model: [CharactersModel] = []
+    private var model: [CharacterModel] = []
     private var page: Int = 1
     weak var viewControllerDelegate: CharactersControllerDelegate!
     
@@ -25,7 +25,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               }
               
               _ = list.compactMap { char in
-                  self.model.append(CharactersModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? ""))
+                  self.model.append(CharacterModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? ""))
               }
               
               DispatchQueue.main.async {
@@ -37,6 +37,12 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
             print("Failure! Error: \(error)")
           }
         }
+    }
+    
+    func didTapOnCharacter(model: CharacterModel) {
+        guard let detailVC = DetailViewController.createStoryboardInstance() else { return }
+        detailVC.setModel(model: model)
+        self.viewControllerDelegate?.goToDetailView(controller: detailVC)
     }
     
     func refresh() {
