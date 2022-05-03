@@ -16,7 +16,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
     override func viewControllerDidLoad() {
         (self.viewControllerDelegate as? CharactersViewController)?.addSpinner()
         
-        CharactersService.shared.apollo.fetch(query: GetCharQuery(page: page)) { result in
+        CharactersService.shared.apollo.fetch(query: GetCharacterQuery(page: page)) { result in
           switch result {
           case .success(let graphQLResult):
               
@@ -25,11 +25,12 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               }
               
               _ = list.compactMap { char in
-                  self.model.append(CharacterModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? ""))
+                  self.model.append(CharacterModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
               }
               
               DispatchQueue.main.async {
                   (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
+                  self.setModel(model: self.model)
                   self.viewControllerDelegate?.setCharactersList(data: self.model)
               }
               
@@ -39,6 +40,10 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
         }
     }
     
+    func setModel(model: [CharacterModel]) {
+        self.model = model
+    }
+    
     func didTapOnCharacter(model: CharacterModel) {
         guard let detailVC = DetailViewController.createStoryboardInstance() else { return }
         detailVC.setModel(model: model)
@@ -46,7 +51,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
     }
     
     func refresh() {
-        self.page+=1
+        self.page += 1
         self.viewControllerDidLoad()
     }
     

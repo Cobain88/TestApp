@@ -11,6 +11,10 @@ enum CharacterInfoType {
     case status
     case gender
     case species
+    case origin
+    case location
+    case locationDimensions
+    case locationResidents
 }
 
 class DetailViewController: BaseViewController<DetailManager> {
@@ -34,7 +38,6 @@ class DetailViewController: BaseViewController<DetailManager> {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController
     }
-
 }
 
 extension DetailViewController: DetailControllerDelegate {
@@ -61,6 +64,16 @@ extension DetailViewController: DetailControllerDelegate {
         if let species = model.species {
             self.addCharacterInfo(info: species, infoType: .species)
         }
+        
+        if let origin = model.origin?.name {
+            self.addCharacterInfo(info: origin, infoType: .origin)
+        }
+        
+        if let location = model.location {
+            self.addCharacterInfo(info: location.name ?? "", infoType: .location)
+            self.addCharacterInfo(info: location.dimension ?? "", infoType: .locationDimensions)
+            self.addCharacterInfo(info: "\(location.residents ?? 0)", infoType: .locationResidents)
+        }
     }
     
     private func addCharacterInfo(info: String, infoType: CharacterInfoType) {
@@ -73,6 +86,14 @@ extension DetailViewController: DetailControllerDelegate {
             infoLabel.text = "Gender: "
         case .species:
             infoLabel.text = "Species: "
+        case .origin:
+            infoLabel.text = "Origin: "
+        case .location:
+            infoLabel.text = "Location: "
+        case .locationDimensions:
+            infoLabel.text = "Dimension: "
+        case .locationResidents:
+            infoLabel.text = "Residents: "
         }
         
         infoLabel.text! += info

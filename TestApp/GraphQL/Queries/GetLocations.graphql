@@ -1,0 +1,11 @@
+query GetLocations ($location: String!) {
+    locations(filter: {name: $location}) {
+    results {
+      name
+      dimension
+      residents{
+        name
+      }
+    }
+  }
+}

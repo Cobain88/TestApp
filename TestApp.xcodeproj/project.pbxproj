@@ -22,6 +22,7 @@
 		50B40A25282134140011F8D7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A24282134140011F8D7 /* DetailViewController.swift */; };
 		50B40A272821341F0011F8D7 /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A262821341F0011F8D7 /* DetailManager.swift */; };
 		50B40A29282134300011F8D7 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A28282134300011F8D7 /* DetailProtocols.swift */; };
+		50B40A2B28216E9F0011F8D7 /* GetLocations.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */; };
 		50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6142281A73AF0064D1F2 /* AppDelegate.swift */; };
 		50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */; };
 		50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC6148281A73AF0064D1F2 /* Main.storyboard */; };
@@ -35,7 +36,7 @@
 		50BC617E281A781D0064D1F2 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC617D281A781D0064D1F2 /* BaseProtocol.swift */; };
 		50D25337281FEA4900260BFF /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 50D25336281FEA4900260BFF /* Apollo */; };
 		50D25339281FEC9800260BFF /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 50D25338281FEC9700260BFF /* schema.json */; };
-		50D2533C281FEE1300260BFF /* LaunchListQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50D2533B281FEE1300260BFF /* LaunchListQuery.graphql */; };
+		50D2533C281FEE1300260BFF /* GetCharacter.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50D2533B281FEE1300260BFF /* GetCharacter.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		50B40A24282134140011F8D7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		50B40A262821341F0011F8D7 /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
 		50B40A28282134300011F8D7 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
+		50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetLocations.graphql; sourceTree = "<group>"; };
 		50BC613F281A73AF0064D1F2 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC6142281A73AF0064D1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +89,7 @@
 		50BC617B281A780C0064D1F2 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		50BC617D281A781D0064D1F2 /* BaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocol.swift; sourceTree = "<group>"; };
 		50D25338281FEC9700260BFF /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		50D2533B281FEE1300260BFF /* LaunchListQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchListQuery.graphql; sourceTree = "<group>"; };
+		50D2533B281FEE1300260BFF /* GetCharacter.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCharacter.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +131,8 @@
 		5087B784281FFAE600B0835F /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				50D2533B281FEE1300260BFF /* LaunchListQuery.graphql */,
+				50D2533B281FEE1300260BFF /* GetCharacter.graphql */,
+				50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -370,10 +373,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D25339281FEC9800260BFF /* schema.json in Resources */,
-				50D2533C281FEE1300260BFF /* LaunchListQuery.graphql in Resources */,
+				50D2533C281FEE1300260BFF /* GetCharacter.graphql in Resources */,
 				5087B79A2820291900B0835F /* ListView.xib in Resources */,
 				50BC614F281A73B10064D1F2 /* LaunchScreen.storyboard in Resources */,
 				5087B79F28202ACA00B0835F /* CharacterCollectionViewCell.xib in Resources */,
+				50B40A2B28216E9F0011F8D7 /* GetLocations.graphql in Resources */,
 				50BC614C281A73B10064D1F2 /* Assets.xcassets in Resources */,
 				50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */,
 			);
