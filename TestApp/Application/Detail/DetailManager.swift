@@ -26,6 +26,7 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                 
             case .success(let graphQLResult):
                 guard let list = graphQLResult.data?.locations?.results else {
+                    (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
                     return
                 }
                 
@@ -33,16 +34,42 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                     self.model?.location = Location(name: loc?.name ?? "", dimension: loc?.dimension ?? "", residents: loc?.residents.count ?? 0)
                 })
                 
-                
-                
-                if let model = self.model {
-                    self.setModel(model: model)
-                    (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
-                    self.viewControllerDelegate?.setDetailView(model: model)
+                CharactersService.shared.apollo.fetch(query: GetEpisodePerCharacterQuery()) { result in
+                    switch result {
+                        
+                    case .success(let graphQLResult):
+                        guard let list = graphQLResult.data?.episodes?.results else {
+                            (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                            return 
+                        }
+                        
+                        let episodeList = list.filter { episode in
+                            return episode!.characters.contains(where: { char in
+                                char!.id == self.model?.id
+                            })
+                        }
+                        
+                        if let firstAppear = episodeList.first {
+                            self.model?.firstAppear = firstAppear?.name
+                            self.model?.firstAppearCode = firstAppear?.episode
+                        }
+                        
+                        if let model = self.model {
+                            self.setModel(model: model)
+                            self.viewControllerDelegate?.setDetailView(model: model)
+                        }
+                        
+                        (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+    
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                    }
                 }
                 
             case .failure(let error):
                 print(error.localizedDescription)
+                (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
             }
             
         }

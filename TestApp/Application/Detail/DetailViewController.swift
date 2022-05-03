@@ -15,6 +15,7 @@ enum CharacterInfoType {
     case location
     case locationDimensions
     case locationResidents
+    case firstAppear
 }
 
 class DetailViewController: BaseViewController<DetailManager> {
@@ -74,6 +75,11 @@ extension DetailViewController: DetailControllerDelegate {
             self.addCharacterInfo(info: location.dimension ?? "", infoType: .locationDimensions)
             self.addCharacterInfo(info: "\(location.residents ?? 0)", infoType: .locationResidents)
         }
+        
+        if let firstAppear = model.firstAppear, let firstAppearCode = model.firstAppearCode {
+            let firstAppearString = firstAppear + " (\(firstAppearCode))"
+            self.addCharacterInfo(info: firstAppearString, infoType: .firstAppear)
+        }
     }
     
     private func addCharacterInfo(info: String, infoType: CharacterInfoType) {
@@ -94,6 +100,8 @@ extension DetailViewController: DetailControllerDelegate {
             infoLabel.text = "Dimension: "
         case .locationResidents:
             infoLabel.text = "Residents: "
+        case .firstAppear:
+            infoLabel.text = "First appear: "
         }
         
         infoLabel.text! += info

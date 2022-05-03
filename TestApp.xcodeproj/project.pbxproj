@@ -23,6 +23,7 @@
 		50B40A272821341F0011F8D7 /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A262821341F0011F8D7 /* DetailManager.swift */; };
 		50B40A29282134300011F8D7 /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A28282134300011F8D7 /* DetailProtocols.swift */; };
 		50B40A2B28216E9F0011F8D7 /* GetLocations.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */; };
+		50B40A2D2821851E0011F8D7 /* GetEpisodePerCharacter.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50B40A2C2821851E0011F8D7 /* GetEpisodePerCharacter.graphql */; };
 		50BC6143281A73AF0064D1F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6142281A73AF0064D1F2 /* AppDelegate.swift */; };
 		50BC6145281A73AF0064D1F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */; };
 		50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BC6148281A73AF0064D1F2 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		50B40A262821341F0011F8D7 /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
 		50B40A28282134300011F8D7 /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
 		50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetLocations.graphql; sourceTree = "<group>"; };
+		50B40A2C2821851E0011F8D7 /* GetEpisodePerCharacter.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetEpisodePerCharacter.graphql; sourceTree = "<group>"; };
 		50BC613F281A73AF0064D1F2 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BC6142281A73AF0064D1F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BC6144281A73AF0064D1F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				50D2533B281FEE1300260BFF /* GetCharacter.graphql */,
 				50B40A2A28216E9F0011F8D7 /* GetLocations.graphql */,
+				50B40A2C2821851E0011F8D7 /* GetEpisodePerCharacter.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				5087B79A2820291900B0835F /* ListView.xib in Resources */,
 				50BC614F281A73B10064D1F2 /* LaunchScreen.storyboard in Resources */,
 				5087B79F28202ACA00B0835F /* CharacterCollectionViewCell.xib in Resources */,
+				50B40A2D2821851E0011F8D7 /* GetEpisodePerCharacter.graphql in Resources */,
 				50B40A2B28216E9F0011F8D7 /* GetLocations.graphql in Resources */,
 				50BC614C281A73B10064D1F2 /* Assets.xcassets in Resources */,
 				50BC614A281A73AF0064D1F2 /* Main.storyboard in Resources */,

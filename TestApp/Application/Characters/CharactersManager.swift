@@ -25,7 +25,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               }
               
               _ = list.compactMap { char in
-                  self.model.append(CharacterModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
+                  self.model.append(CharacterModel(id: char?.id, name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
               }
               
               DispatchQueue.main.async {

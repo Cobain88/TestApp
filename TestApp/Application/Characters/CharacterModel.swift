@@ -8,6 +8,7 @@
 import Foundation
 
 struct CharacterModel {
+    var id: String?
     var name: String?
     var gender: String?
     var status: String?
@@ -15,9 +16,12 @@ struct CharacterModel {
     var image: String?
     var origin: Origin?
     var location: Location?
+    var firstAppear: String?
+    var firstAppearCode: String?
     
     
-    init(name: String?, gender: String?, status: String?, species: String?, image: String?, origin: Origin?, location: Location?) {
+    init(id: String?, name: String?, gender: String?, status: String?, species: String?, image: String?, origin: Origin?, location: Location?) {
+        self.id = id
         self.name = name
         self.gender = gender
         self.status = status

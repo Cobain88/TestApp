@@ -1,0 +1,12 @@
+query GetEpisodePerCharacter{
+    episodes {
+        results {
+            name
+            episode
+            air_date
+            characters {
+                id
+            }
+        }
+    }
+}
