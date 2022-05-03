@@ -25,15 +25,13 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               }
               
               _ = list.compactMap { char in
-                  self.model.append(CharactersModel(name: char?.name ?? "", gender: char?.gender ?? "", status: nil, species: char?.species ?? "", image: nil))
+                  self.model.append(CharactersModel(name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? ""))
               }
               
               DispatchQueue.main.async {
                   (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
                   self.viewControllerDelegate?.setCharactersList(data: self.model)
               }
-              
-              
               
           case .failure(let error):
             print("Failure! Error: \(error)")

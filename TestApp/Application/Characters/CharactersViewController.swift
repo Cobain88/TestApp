@@ -37,6 +37,8 @@ extension CharactersViewController: CharactersControllerDelegate {
             listView.topAnchor.constraint(equalTo: characterListView.topAnchor).isActive = true
             listView.bottomAnchor.constraint(equalTo: characterListView.bottomAnchor).isActive = true
         }
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Characters"
     }
 }
 
@@ -46,7 +48,6 @@ extension CharactersViewController: CharacterViewDelegate {
     
     func refresh() {
         self.manager.refresh()
-        
     }
     
     
