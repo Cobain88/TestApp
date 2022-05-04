@@ -29,20 +29,26 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
               }
               
               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                  (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
                   self.setModel(model: self.model)
-                  self.viewControllerDelegate?.setCharactersList(data: self.model)
-                  self.viewControllerDelegate?.setNavigationController()
+                  self.setCharactersListViewController()
               }
               
           case .failure(let error):
             print("Failure! Error: \(error)")
+            self.setCharactersListViewController()
+            
           }
         }
     }
     
     func setModel(model: [CharacterModel]) {
         self.model = model
+    }
+    
+    func setCharactersListViewController() {
+        (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
+        self.viewControllerDelegate?.setCharactersList(data: self.model)
+        self.viewControllerDelegate?.setNavigationController()
     }
     
     func didTapOnCharacter(model: CharacterModel) {
@@ -55,5 +61,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
         self.page += 1
         self.viewControllerDidLoad()
     }
+    
+    
     
 }

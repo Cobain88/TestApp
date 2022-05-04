@@ -40,7 +40,7 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                     case .success(let graphQLResult):
                         guard let list = graphQLResult.data?.episodes?.results else {
                             (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
-                            return 
+                            return
                         }
                         
                         let episodeList = list.filter { episode in
@@ -60,22 +60,32 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                         }
                         
                         (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
-    
+                        
                     case .failure(let error):
                         print(error.localizedDescription)
-                        (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                            (self.viewControllerDelegate as? DetailViewController)?.showAlert(message: "There was an error in fetching the episode data. Try again", completion: {_ in
+                                self.viewControllerDelegate?.goBackToListViewController()
+                            })
+                        }
                     }
                 }
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                    (self.viewControllerDelegate as? DetailViewController)?.showAlert(message: "There was an error in fetching the location data. Try again", completion: {_ in
+                        self.viewControllerDelegate?.goBackToListViewController()
+                    })
+                }
             }
             
         }
     }
     
     func setModel(model: CharacterModel) {
-        self.model = model 
+        self.model = model
     }
 }

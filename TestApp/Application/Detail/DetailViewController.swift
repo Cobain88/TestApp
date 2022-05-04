@@ -111,5 +111,7 @@ extension DetailViewController: DetailControllerDelegate {
         characterInfoStackView.addArrangedSubview(infoLabel)
     }
     
-
+    func goBackToListViewController() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

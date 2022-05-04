@@ -37,6 +37,9 @@ extension CharactersViewController: CharactersControllerDelegate {
             listView.trailingAnchor.constraint(equalTo: characterListView.trailingAnchor).isActive = true
             listView.topAnchor.constraint(equalTo: characterListView.topAnchor).isActive = true
             listView.bottomAnchor.constraint(equalTo: characterListView.bottomAnchor).isActive = true
+            if data.isEmpty {
+                self.showAlert(message: "No character found. Try to refresh", completion: nil)
+            }
         }
     }
     
