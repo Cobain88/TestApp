@@ -38,6 +38,12 @@ extension CharactersViewController: CharactersControllerDelegate {
             listView.topAnchor.constraint(equalTo: characterListView.topAnchor).isActive = true
             listView.bottomAnchor.constraint(equalTo: characterListView.bottomAnchor).isActive = true
         }
+    }
+    
+    func setNavigationController() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Characters"
     }

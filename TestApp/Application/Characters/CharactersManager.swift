@@ -32,6 +32,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
                   (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
                   self.setModel(model: self.model)
                   self.viewControllerDelegate?.setCharactersList(data: self.model)
+                  self.viewControllerDelegate?.setNavigationController()
               }
               
           case .failure(let error):

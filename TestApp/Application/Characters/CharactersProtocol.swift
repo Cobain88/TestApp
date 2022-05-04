@@ -16,5 +16,6 @@ protocol CharactersManagerDelegate: AnyObject {
 
 protocol CharactersControllerDelegate: AnyObject {
     func setCharactersList(data: [CharacterModel])
+    func setNavigationController()
     func goToDetailView(controller: DetailViewController)
 }

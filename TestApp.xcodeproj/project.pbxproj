@@ -14,8 +14,8 @@
 		5087B7912820010B00B0835F /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B7902820010B00B0835F /* CharacterModel.swift */; };
 		5087B798282028F300B0835F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B797282028F300B0835F /* ListView.swift */; };
 		5087B79A2820291900B0835F /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5087B7992820291900B0835F /* ListView.xib */; };
-		5087B79E28202ACA00B0835F /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B79C28202ACA00B0835F /* CharacterCollectionViewCell.swift */; };
-		5087B79F28202ACA00B0835F /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5087B79D28202ACA00B0835F /* CharacterCollectionViewCell.xib */; };
+		5087B79E28202ACA00B0835F /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B79C28202ACA00B0835F /* CharacterTableViewCell.swift */; };
+		5087B79F28202ACA00B0835F /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5087B79D28202ACA00B0835F /* CharacterTableViewCell.xib */; };
 		5087B7A12820345B00B0835F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B7A02820345B00B0835F /* API.swift */; };
 		50B40A20282114FC0011F8D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A1F282114FC0011F8D7 /* Extensions.swift */; };
 		50B40A22282115200011F8D7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B40A21282115200011F8D7 /* ImageLoader.swift */; };
@@ -65,8 +65,8 @@
 		5087B7902820010B00B0835F /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		5087B797282028F300B0835F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		5087B7992820291900B0835F /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
-		5087B79C28202ACA00B0835F /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
-		5087B79D28202ACA00B0835F /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
+		5087B79C28202ACA00B0835F /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		5087B79D28202ACA00B0835F /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		5087B7A02820345B00B0835F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = TestApp/API.swift; sourceTree = SOURCE_ROOT; };
 		50B40A1F282114FC0011F8D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50B40A21282115200011F8D7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 		5087B79B28202AA000B0835F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5087B79C28202ACA00B0835F /* CharacterCollectionViewCell.swift */,
-				5087B79D28202ACA00B0835F /* CharacterCollectionViewCell.xib */,
+				5087B79C28202ACA00B0835F /* CharacterTableViewCell.swift */,
+				5087B79D28202ACA00B0835F /* CharacterTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 				50D2533C281FEE1300260BFF /* GetCharacter.graphql in Resources */,
 				5087B79A2820291900B0835F /* ListView.xib in Resources */,
 				50BC614F281A73B10064D1F2 /* LaunchScreen.storyboard in Resources */,
-				5087B79F28202ACA00B0835F /* CharacterCollectionViewCell.xib in Resources */,
+				5087B79F28202ACA00B0835F /* CharacterTableViewCell.xib in Resources */,
 				50B40A2D2821851E0011F8D7 /* GetEpisodePerCharacter.graphql in Resources */,
 				50B40A2B28216E9F0011F8D7 /* GetLocations.graphql in Resources */,
 				50BC614C281A73B10064D1F2 /* Assets.xcassets in Resources */,
@@ -441,7 +441,7 @@
 				5087B78A281FFF5300B0835F /* CharactersProtocol.swift in Sources */,
 				50B40A29282134300011F8D7 /* DetailProtocols.swift in Sources */,
 				5087B782281FF1CA00B0835F /* CharactersService.swift in Sources */,
-				5087B79E28202ACA00B0835F /* CharacterCollectionViewCell.swift in Sources */,
+				5087B79E28202ACA00B0835F /* CharacterTableViewCell.swift in Sources */,
 				5087B798282028F300B0835F /* ListView.swift in Sources */,
 				5087B78F281FFFE700B0835F /* CharactersViewController.swift in Sources */,
 				5087B7912820010B00B0835F /* CharacterModel.swift in Sources */,

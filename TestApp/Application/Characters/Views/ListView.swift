@@ -15,7 +15,7 @@ protocol CharacterViewDelegate: AnyObject {
 
 class ListView: UIView {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     weak var delegate: CharacterViewDelegate?
     
@@ -44,12 +44,13 @@ class ListView: UIView {
         view?.list = data
         view?.delegate = delegate
         view?.refreshControl.addTarget(view, action: #selector(view?.refresh), for: .valueChanged)
-        view?.collectionView.addSubview(view!.refreshControl)
+        view?.tableView.addSubview(view!.refreshControl)
         view?.isRefreshing = false
-        view?.collectionView.register(UINib(nibName: "CharacterCollectionViewCell", bundle: nil),forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
-        view?.collectionView.dataSource = view
-        view?.collectionView.delegate = view
-        view?.collectionView.reloadData()
+        view?.tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        view?.tableView.dataSource = view
+        view?.tableView.delegate = view
+        view?.tableView.separatorStyle  = .none
+        view?.tableView.reloadData()
         return view!
     }
     
@@ -59,41 +60,38 @@ class ListView: UIView {
     }
 }
 
-extension ListView: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfSections section: Int) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension ListView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as! CharacterCollectionViewCell
-        cell.setup(model: self.list[indexPath.item])
-        return cell
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 148
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let verticalPadding: CGFloat = 8
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 6
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+    }
+    
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as! CharacterTableViewCell
+       cell.setup(model: self.list[indexPath.row])
+       return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didTapOnItem(model: self.list[indexPath.row])
-    }
-}
-
-extension ListView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let width = collectionView.frame.width / 2 - 4
-        return CGSize(width: width, height: width)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 4.0
     }
 }
