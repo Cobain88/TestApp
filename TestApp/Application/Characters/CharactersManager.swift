@@ -28,7 +28,7 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
                   self.model.append(CharacterModel(id: char?.id, name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
               }
               
-              DispatchQueue.main.async {
+              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                   (self.viewControllerDelegate as? CharactersViewController)?.removeSpinner()
                   self.setModel(model: self.model)
                   self.viewControllerDelegate?.setCharactersList(data: self.model)

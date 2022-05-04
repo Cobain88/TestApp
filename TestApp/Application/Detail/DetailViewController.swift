@@ -105,6 +105,9 @@ extension DetailViewController: DetailControllerDelegate {
         }
         
         infoLabel.text! += info
+        infoLabel.textColor = .white
+        infoLabel.numberOfLines = 0
+        infoLabel.adjustsFontSizeToFitWidth = true 
         characterInfoStackView.addArrangedSubview(infoLabel)
     }
     

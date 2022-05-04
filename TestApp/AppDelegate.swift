@@ -15,21 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let monitorQueqe = DispatchQueue(label: "Monitor")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    #if targetEnvironment(simulator)
-        debugPrint("iOS Simulator seems to have a bug in detecting network connection properly, so you need a real device to test this feature xD")
-    #else
-        monitor.pathUpdateHandler = { path in
-            if path.status == .unsatisfied {
-                DispatchQueue.main.async {
-                    if let currentVC = UIApplication.shared.windows.first?.rootViewController {
-                        currentVC.showAlert(message: "Internet connection is not available")
+        #if targetEnvironment(simulator)
+            debugPrint("iOS Simulator seems to have a bug in detecting network connection properly, so you need a real device to test this feature xD")
+        #else
+            monitor.pathUpdateHandler = { path in
+                if path.status == .unsatisfied {
+                    DispatchQueue.main.async {
+                        if let currentVC = UIApplication.shared.windows.first?.rootViewController {
+                            currentVC.showAlert(message: "Internet connection is not available")
+                        }
                     }
                 }
             }
-        }
         
         monitor.start(queue: monitorQueqe)
-    #endif
+        #endif
         return true
     }
     
