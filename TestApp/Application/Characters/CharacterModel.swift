@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterModel {
+public struct CharacterModel: Codable {
     var id: String?
     var name: String?
     var gender: String?
@@ -19,6 +19,14 @@ struct CharacterModel {
     var firstAppear: String?
     var firstAppearCode: String?
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case gender
+        case status
+        case species
+        case image
+    }
     
     init(id: String?, name: String?, gender: String?, status: String?, species: String?, image: String?, origin: Origin?, location: Location?) {
         self.id = id
@@ -30,6 +38,7 @@ struct CharacterModel {
         self.origin = origin
         self.location = location
     }
+
 }
 
 struct Origin {

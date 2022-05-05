@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		507913C92823BFD5008CC550 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507913C82823BFD5008CC550 /* TestUtilities.swift */; };
+		507913CB2823BFE4008CC550 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507913CA2823BFE4008CC550 /* Extensions.swift */; };
+		507913CE2823C014008CC550 /* TestingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507913CD2823C014008CC550 /* TestingService.swift */; };
 		5087B782281FF1CA00B0835F /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B781281FF1CA00B0835F /* CharactersService.swift */; };
 		5087B78A281FFF5300B0835F /* CharactersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B789281FFF5300B0835F /* CharactersProtocol.swift */; };
 		5087B78C281FFF8300B0835F /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087B78B281FFF8200B0835F /* CharactersManager.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		507913C82823BFD5008CC550 /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
+		507913CA2823BFE4008CC550 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		507913CD2823C014008CC550 /* TestingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingService.swift; sourceTree = "<group>"; };
 		5087B781281FF1CA00B0835F /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 		5087B789281FFF5300B0835F /* CharactersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersProtocol.swift; sourceTree = "<group>"; };
 		5087B78B281FFF8200B0835F /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
@@ -230,6 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				50BC6159281A73B20064D1F2 /* TestAppTests.swift */,
+				507913CD2823C014008CC550 /* TestingService.swift */,
+				507913C82823BFD5008CC550 /* TestUtilities.swift */,
+				507913CA2823BFE4008CC550 /* Extensions.swift */,
 			);
 			path = TestAppTests;
 			sourceTree = "<group>";
@@ -454,6 +463,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507913C92823BFD5008CC550 /* TestUtilities.swift in Sources */,
+				507913CB2823BFE4008CC550 /* Extensions.swift in Sources */,
+				507913CE2823C014008CC550 /* TestingService.swift in Sources */,
 				50BC615A281A73B20064D1F2 /* TestAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

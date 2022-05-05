@@ -10,26 +10,56 @@ import XCTest
 
 class TestAppTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    //Waiting for a success
+        func testDecodeResponse() {
+            
+            let jsonString = "{\"results\": [{\"id\": \"1\",\"name\":\"Rick Sanchez\",\"status\":\"Alive\",\"species\": \"Human\",\"gender\":\"Male\",\"image\": \"https://rickandmortyapi.com/api/character/avatar/1.jpeg\"}]}"
+            
+            guard let data = jsonString.setAsJSON else {
+                XCTFail()
+                return
+            }
+            
+            let result = TestingService.shared.decode(data, error: nil)
+
+            switch result {
+            case .failure(_):
+                XCTFail("Success expected")
+            case .success(let list):
+                XCTAssertNotNil(list)
+                XCTAssertEqual(1, list.results.count)
+                if let character = list.results.first {
+                    XCTAssertEqual("Rick Sanchez", character.name)
+                    XCTAssertEqual("Alive", character.status)
+                }
+            }
+        }
+    
+    
+    //Waiting for afailure (data is equal to nil)
+    func testDecodeWrongDataResponse() {
+        let result = TestingService.shared.decode(nil, error: nil)
+
+        switch result {
+        case .failure(let error):
+            XCTAssertNotNil(error)
+            XCTAssertEqual("No data fetched", error.localizedDescription)
+        case .success(_):
+            XCTFail("Failure expected")
+        }
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    
+    //Waiting for a failure (error is not equal to nil)
+    func testDecodeResponseError() {
+        let result = TestingService.shared.decode(Data(), error: MyTestError.mock)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        switch result {
+        case .failure(let error):
+            XCTAssertNotNil(error)
+            XCTAssertEqual("An error has occurred", error.localizedDescription)
+        case .success(_):
+            XCTFail("Failure expected")
         }
     }
 
