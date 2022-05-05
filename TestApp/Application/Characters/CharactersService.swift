@@ -9,8 +9,9 @@ import Foundation
 import Apollo
 
 class CharactersService {
-
-  static let shared = CharactersService()
-
-  private(set) lazy var apollo = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
+    
+    static let shared = CharactersService()
+    
+    private(set) lazy var apollo = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql")!)
+    
 }

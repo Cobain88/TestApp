@@ -12,6 +12,7 @@ class CharactersViewController: BaseViewController<CharactersManager> {
     @IBOutlet weak var characterListView: UIView!
     
     var listView: ListView?
+    var hasFoundData: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ extension CharactersViewController: CharactersControllerDelegate {
             listView.topAnchor.constraint(equalTo: characterListView.topAnchor).isActive = true
             listView.bottomAnchor.constraint(equalTo: characterListView.bottomAnchor).isActive = true
             if data.isEmpty {
+                self.hasFoundData = false
                 self.showAlert(message: "No character found. Try to refresh", completion: nil)
             }
         }
@@ -63,7 +65,8 @@ extension CharactersViewController: CharacterViewDelegate {
     }
     
     func refresh() {
-        self.manager.refresh()
+        self.manager.refresh(hasFoundData: self.hasFoundData)
+        self.hasFoundData = true 
     }
     
     

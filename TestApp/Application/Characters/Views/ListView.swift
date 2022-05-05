@@ -44,6 +44,7 @@ class ListView: UIView {
         view?.list = data
         view?.delegate = delegate
         view?.refreshControl.addTarget(view, action: #selector(view?.refresh), for: .valueChanged)
+        view?.refreshControl.tintColor = .clear
         view?.tableView.addSubview(view!.refreshControl)
         view?.isRefreshing = false
         view?.tableView.register(UINib(nibName: "CharacterTableViewCell", bundle: nil), forCellReuseIdentifier: CharacterTableViewCell.identifier)

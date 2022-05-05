@@ -10,7 +10,7 @@ import Foundation
 protocol CharactersManagerDelegate: AnyObject {
     func setModel(model: [CharacterModel])
     func didTapOnCharacter(model: CharacterModel)
-    func refresh()
+    func refresh(hasFoundData: Bool)
     
 }
 

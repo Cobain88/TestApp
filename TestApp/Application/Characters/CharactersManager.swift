@@ -57,11 +57,10 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
         self.viewControllerDelegate?.goToDetailView(controller: detailVC)
     }
     
-    func refresh() {
-        self.page += 1
+    func refresh(hasFoundData: Bool) {
+        if hasFoundData {
+            self.page += 1
+        }
         self.viewControllerDidLoad()
     }
-    
-    
-    
 }

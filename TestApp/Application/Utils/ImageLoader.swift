@@ -23,7 +23,7 @@ class ImageLoader {
             self.task = URLSession.shared.dataTask(with: url) { data, _ , error in
 
                 if let error = error {
-                    completion(nil, error)
+                    completion(UIImage(), error)
                     return
                 }
                 
@@ -33,7 +33,7 @@ class ImageLoader {
                     self.cache.setObject(image ?? UIImage(), forKey: url.absoluteString as NSString)
                     completion(image, nil)
                 } else {
-                    completion(nil,nil)
+                    completion(UIImage(),nil)
                 }
             }
 
