@@ -17,7 +17,7 @@ class DetailManager: BaseManager, DetailManagerDelegate {
         (self.viewControllerDelegate as? DetailViewController)?.addSpinner()
         
         guard let location = model?.location?.name else {
-            (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+            self.handleError(message: "Location data missing. Try again")
             return
         }
         
@@ -25,8 +25,8 @@ class DetailManager: BaseManager, DetailManagerDelegate {
             switch result {
                 
             case .success(let graphQLResult):
-                guard let list = graphQLResult.data?.locations?.results else {
-                    (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                guard let list = graphQLResult.data?.locations?.results, list.count > 0 else {
+                    self.handleError(message: "No locations found. Try again")
                     return
                 }
                 
@@ -38,8 +38,8 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                     switch result {
                         
                     case .success(let graphQLResult):
-                        guard let list = graphQLResult.data?.episodes?.results else {
-                            (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+                        guard let list = graphQLResult.data?.episodes?.results, list.count > 0 else {
+                            self.handleError(message: "No episodes found. Try again ")
                             return
                         }
                         
@@ -64,10 +64,7 @@ class DetailManager: BaseManager, DetailManagerDelegate {
                     case .failure(let error):
                         print(error.localizedDescription)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
-                            (self.viewControllerDelegate as? DetailViewController)?.showAlert(message: "There was an error in fetching the episode data. Try again", completion: {_ in
-                                self.viewControllerDelegate?.goBackToListViewController()
-                            })
+                            self.handleError(message: "There was an error in fetching the episode data. Try again")
                         }
                     }
                 }
@@ -75,10 +72,7 @@ class DetailManager: BaseManager, DetailManagerDelegate {
             case .failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
-                    (self.viewControllerDelegate as? DetailViewController)?.showAlert(message: "There was an error in fetching the location data. Try again", completion: {_ in
-                        self.viewControllerDelegate?.goBackToListViewController()
-                    })
+                    self.handleError(message: "There was an error in fetching the location data. Try again")
                 }
             }
             
@@ -87,5 +81,12 @@ class DetailManager: BaseManager, DetailManagerDelegate {
     
     func setModel(model: CharacterModel) {
         self.model = model
+    }
+    
+    private func handleError(message: String) {
+        (self.viewControllerDelegate as? DetailViewController)?.removeSpinner()
+        (self.viewControllerDelegate as? DetailViewController)?.showAlert(message: message, completion: { _ in
+            self.viewControllerDelegate?.goBackToListViewController()
+        })
     }
 }

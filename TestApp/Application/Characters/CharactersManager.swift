@@ -17,27 +17,28 @@ class CharactersManager: BaseManager, CharactersManagerDelegate {
         (self.viewControllerDelegate as? CharactersViewController)?.addSpinner()
         
         CharactersService.shared.apollo.fetch(query: GetCharacterQuery(page: page)) { result in
-          switch result {
-          case .success(let graphQLResult):
-              
-              guard let list = graphQLResult.data?.characters?.results else {
-                  return
-              }
-              
-              _ = list.compactMap { char in
-                  self.model.append(CharacterModel(id: char?.id, name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
-              }
-              
-              DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                  self.setModel(model: self.model)
-                  self.setCharactersListViewController()
-              }
-              
-          case .failure(let error):
-            print("Failure! Error: \(error)")
-            self.setCharactersListViewController()
-            
-          }
+            switch result {
+            case .success(let graphQLResult):
+                
+                guard let list = graphQLResult.data?.characters?.results, list.count > 0 else {
+                    self.setCharactersListViewController()
+                    return
+                }
+                
+                _ = list.compactMap { char in
+                    self.model.append(CharacterModel(id: char?.id, name: char?.name ?? "", gender: char?.gender ?? "", status: char?.status ?? "", species: char?.species ?? "", image: char?.image ?? "", origin: Origin(name: char?.origin?.name ?? ""), location: Location(name: char?.location?.name ?? "")))
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.setModel(model: self.model)
+                    self.setCharactersListViewController()
+                }
+                
+            case .failure(let error):
+                print("Failure! Error: \(error)")
+                self.setCharactersListViewController()
+                
+            }
         }
     }
     
